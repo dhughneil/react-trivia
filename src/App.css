@@ -1,4 +1,4 @@
-#root {
+ #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -8,4 +8,63 @@
 
 #body {
   color: white
+} */
+/* lifted from another project, adjust as needed  */
+
+body {
+  justify-content: center;
+}
+
+.App {
+  text-align: center;
+  font-family: Regular;
+  font-weight:900;
+  font-style: italic;
+  background: linear-gradient(#ffffff,#1834ec);
+  padding: 25px;
+  border-radius: 50px;
+  border-color: #020202;
+  box-shadow: 0 0 50px #ffffff1a;
+}
+
+header {
+  color: #020202;
+  padding: 1px;
+  text-align: center;
+  border-radius: 50px;
+  box-shadow: 0 0 50px #ffffff1a;
+
+}
+
+.nav-buttons {
+  margin-top: 5px;
+}
+
+.choice {
+  color: rgb(1, 181, 241);
+  font-family: Regular;
+  font-weight:900;
+  font-style: italic;
+  background-color: #f9f9f9;
+  border: 2px solid #fffcfc;
+  padding: 10px;
+  margin: 0px;
+  cursor: auto;
+  border-radius: 20px;
+}
+
+.choice:hover {
+  color:#ffffff;
+  background-color: lightgray;
+}
+
+.choice.selected {
+  background-color: gray;
+  color: #ffffff;
+}
+
+.choices-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }

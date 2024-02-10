@@ -14,7 +14,7 @@ function Results() {
       <>
       <div>
       <h2>Correct: {correct}</h2>
-      <h2>Wrong: {incorrect}</h2>
+      <h2>Incorrect: {incorrect}</h2>
       <h2>Accuracy: {accuracy}%</h2>
       </div>
     
