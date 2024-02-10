@@ -1,6 +1,6 @@
 import './App.css'
-import Unneeded from './components/Unneeded'
-import Counter from './components/Results'
+import Results from './components/Results'
+import Questions from './components/Questions'
 
 function App() {
 
@@ -13,7 +13,8 @@ function App() {
         <p>
         A single player trivia game. Drill yourself. Improve your game.
       </p>
-        <Counter />
+        <Results />
+        <Questions />
       </div>
     </>
   )
