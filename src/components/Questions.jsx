@@ -1,9 +1,14 @@
 import React from 'react'
 import "./Questions.css";
 
-const Questions = () => {
+function Questions({updateCorrect}) {
+  const handleClick = () => {
+    const newCorrect = 1
+    updateCorrect(newCorrect) 
+  }
   return (
     <div>Questions
+      <button onClick={handleClick}>Submit</button>
     </div>
   )
 }
