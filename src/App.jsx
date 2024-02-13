@@ -4,13 +4,16 @@ import Results from './components/Results'
 import Questions from './components/Questions'
 
 function App() {
-  const [correct, setCorrect] = useState(5);
-  const [incorrect, setIncorrect] = useState(3)
-  const calc =  correct /(correct + incorrect)
-  let accuracy = (calc * 100).toFixed(1);
+  const [correct, setCorrect] = useState(0);
+  const [incorrect, setIncorrect] = useState(0)
+  const calc =  correct + incorrect === 0 ? 1 : correct /(correct + incorrect)
+  // const accuracy = ((calc ?? 0) * 100).toFixed(1);
+  // Check if calc is a valid number before performing calculations
+const accuracy = calc !== 0 ? (calc * 100).toFixed(1) : 0
+
 
   const updateCorrect = (newCorrect) => {
-    setIncorrect(incorrect+newCorrect)
+    setCorrect(correct+newCorrect)
   }
 
   return (

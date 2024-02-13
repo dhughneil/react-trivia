@@ -1,17 +1,17 @@
  #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  /* max-width: 1280px; */
+  /* margin: 0 auto; */
   padding: 2rem;
   text-align: center;
   background-color: tan;
 }
-
+/* 
 #body {
   color: white
 } */
 /* lifted from another project, adjust as needed  */
 
-body {
+/* body {
   justify-content: center;
 }
 
@@ -67,4 +67,4 @@ header {
   display: flex;
   flex-direction: column;
   gap: 5px;
-}
+}  */
