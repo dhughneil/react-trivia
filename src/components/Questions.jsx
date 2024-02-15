@@ -65,12 +65,14 @@ const questions = [
   }  
 ];
 
-function Questions({updateCorrect}) {
+function Questions({updateScore, endGame}) {
   
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState('Select an answer');
-  const [currentAnswer, setCurrentAnswer] = useState()
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [currentAnswer, setCurrentAnswer] = useState(false)
+  const [showResults, setShowResults] = useState(false)
   const currentQuestion = questions[currentQuestionIndex]
+  const questionsLeft = questions.length - currentQuestionIndex -1
 
   const renderButton = (option, index) => {
     return (
@@ -78,14 +80,20 @@ function Questions({updateCorrect}) {
     );
   };
 
-  const handleClick = (response) => {
-    updateCorrect(currentAnswer) 
+  const handleSubmit = () => {
+    updateScore(currentAnswer)
+    setCurrentAnswer(false)
+    setCurrentQuestionIndex(currentQuestionIndex + 1);
+    (questionsLeft === 0) ? endGame :
+    console.log(showResults)
+    console.log(questionsLeft)
   }
 
   const handleAnswer = (option) => {
     setSelectedAnswer(option)
     const isCorrect = option === currentQuestion.answer
     setCurrentAnswer(isCorrect)
+    setSelectedAnswer(null)  // I added this line because of unexpected behavior, but I can't remember the problem.
     console.log(isCorrect)
   }
 
@@ -93,12 +101,12 @@ function Questions({updateCorrect}) {
     <>
 
     <div>
-    <p style={{ color: 'green' }}>Question {currentQuestionIndex} of {questions.length}</p>
+    <p style={{ color: 'green' }}>Question {currentQuestionIndex + 1} of {questions.length}</p>
     <h3 style={{ color: 'darkblue'}}>{currentQuestion.text}</h3>
     
     {currentQuestion.options.map(renderButton)}
     
-    <button type="button" className="btn btn-light btn-block"onClick={handleClick}>Submit: {selectedAnswer}</button>
+    <button type="button" className="btn btn-light" margintop='20px' onClick={handleSubmit}>Submit</button>
   </div>
     </>
   )

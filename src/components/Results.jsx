@@ -4,14 +4,14 @@ import React from 'react'
 
 // If this function calculated something to product that one line of text it would be warrented, but it doesn't.
 
-function Results({correct, incorrect, accuracy}) {
+// function Results({correct, incorrect, accuracy}) {
+function Results({}) {
 
-    
   return (
       <>
       <div>
-      <h2>Correct: {correct}&nbsp;&nbsp;&nbsp;&nbsp;Incorrect: {incorrect}&nbsp;&nbsp;&nbsp;&nbsp;   Accuracy: {accuracy}%</h2>
-      
+      {/* <h2>Correct: {correct}&nbsp;&nbsp;&nbsp;&nbsp;Incorrect: {incorrect}&nbsp;&nbsp;&nbsp;&nbsp;   Accuracy: {accuracy}%</h2> */}
+      <h1>Game Over!</h1>
       </div>
     </>
   )

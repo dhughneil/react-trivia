@@ -4,15 +4,21 @@ import Results from './components/Results'
 import Questions from './components/Questions'
 
 function App() {
+  const [gameOver, setGameOver] = useState(false);
   const [correct, setCorrect] = useState(0);
   const [incorrect, setIncorrect] = useState(0)
   const calc =  correct + incorrect === 0 ? 1 : correct /(correct + incorrect)
   const accuracy = calc !== 0 ? (calc * 100).toFixed(1) : 0
 
 
-  const updateCorrect = (currentAnswer) => {
+  const updateScore = (currentAnswer) => {
     (currentAnswer === true) ? setCorrect(correct+1): setIncorrect(incorrect+1);
   }
+
+  const endGame = (gameEnded) => {
+    (gameEnded === true) ? setGameOver(true) : console.log(gameEnded)
+  }
+
 
    return (
 
@@ -25,7 +31,7 @@ function App() {
       <h4>Correct: {correct}&nbsp;&nbsp;&nbsp;&nbsp;
       Incorrect: {incorrect}&nbsp;&nbsp;&nbsp;&nbsp;   
       Accuracy: {accuracy}%</h4>
-        <Questions updateCorrect={updateCorrect}/>
+      {(gameOver) ? <Results/> : <Questions updateScore={updateScore} endGame={endGame}/>}
       </div>
     </>
   )
