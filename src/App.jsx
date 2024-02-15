@@ -7,16 +7,14 @@ function App() {
   const [correct, setCorrect] = useState(0);
   const [incorrect, setIncorrect] = useState(0)
   const calc =  correct + incorrect === 0 ? 1 : correct /(correct + incorrect)
-  // const accuracy = ((calc ?? 0) * 100).toFixed(1);
-  // Check if calc is a valid number before performing calculations
-const accuracy = calc !== 0 ? (calc * 100).toFixed(1) : 0
+  const accuracy = calc !== 0 ? (calc * 100).toFixed(1) : 0
 
 
-  const updateCorrect = (newCorrect) => {
-    setCorrect(correct+newCorrect)
+  const updateCorrect = (currentAnswer) => {
+    (currentAnswer === true) ? setCorrect(correct+1): setIncorrect(incorrect+1);
   }
 
-  return (
+   return (
 
     <>
       <div>
@@ -24,7 +22,9 @@ const accuracy = calc !== 0 ? (calc * 100).toFixed(1) : 0
         <p>
         A single player trivia game. Drill yourself. Improve your game.
       </p>
-        <Results correct={correct} incorrect={incorrect} accuracy={accuracy}/>
+      <h4>Correct: {correct}&nbsp;&nbsp;&nbsp;&nbsp;
+      Incorrect: {incorrect}&nbsp;&nbsp;&nbsp;&nbsp;   
+      Accuracy: {accuracy}%</h4>
         <Questions updateCorrect={updateCorrect}/>
       </div>
     </>

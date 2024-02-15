@@ -24,6 +24,10 @@ body {
     box-shadow: 0 0 50px #ffffff1a;
   
   }
+
+  h2 {
+    font-weight:'bold'
+  }
   
   .nav-buttons {
     margin-top: 5px;
