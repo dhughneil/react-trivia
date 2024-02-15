@@ -31,7 +31,7 @@ function App() {
       <h4>Correct: {correct}&nbsp;&nbsp;&nbsp;&nbsp;
       Incorrect: {incorrect}&nbsp;&nbsp;&nbsp;&nbsp;   
       Accuracy: {accuracy}%</h4>
-      {(gameOver) ? <Results/> : <Questions updateScore={updateScore} endGame={endGame}/>}
+      {(gameOver) ? <Results accuracy={accuracy}/> : <Questions updateScore={updateScore} endGame={endGame}/>}
       </div>
     </>
   )

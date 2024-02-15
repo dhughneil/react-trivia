@@ -62,7 +62,13 @@ const questions = [
     text: "What is the capital of Spain?",
     options: [ "Barcelona", "Seville", "Madrid", "Andorra"],
     answer: "Madrid",
-  }  
+  },  
+  {
+    id: 11,
+    text: "Game Over",
+    options: [ "Barcelona", "Seville", "Madrid", "Andorra"],
+    answer: "Madrid",
+  } 
 ];
 
 function Questions({updateScore, endGame}) {
@@ -84,7 +90,7 @@ function Questions({updateScore, endGame}) {
     updateScore(currentAnswer)
     setCurrentAnswer(false)
     setCurrentQuestionIndex(currentQuestionIndex + 1);
-    (questionsLeft === 0) ? endGame :
+    (questionsLeft === 0) ? endGame(showResults) :
     console.log(showResults)
     console.log(questionsLeft)
   }
