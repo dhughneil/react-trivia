@@ -1,6 +1,6 @@
 import React, { useState }  from 'react'
 import "./Questions.css";
-// import button from 'react-button/Button'
+
 
 const questions = [
   {
@@ -66,8 +66,8 @@ const questions = [
   {
     id: 11,
     text: "Game Over",
-    options: [ "Barcelona", "Seville", "Madrid", "Andorra"],
-    answer: "Madrid",
+    options: [ "Game Over", "Game Over", "Game Over", "Game Over"],
+    answer: "Game Over",
   } 
 ];
 
@@ -76,7 +76,7 @@ function Questions({updateScore, endGame}) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [currentAnswer, setCurrentAnswer] = useState(false)
-  const [showResults, setShowResults] = useState(false)
+  const [optionSelected, setOptionsSelected] = useState()
   const currentQuestion = questions[currentQuestionIndex]
   const questionsLeft = questions.length - currentQuestionIndex -1
 
@@ -90,39 +90,36 @@ function Questions({updateScore, endGame}) {
     updateScore(currentAnswer)
     setCurrentAnswer(false)
     setCurrentQuestionIndex(currentQuestionIndex + 1);
-    (questionsLeft === 0) ? endGame(showResults) :
-    console.log(showResults)
-    console.log(questionsLeft)
+    (questionsLeft === 1) ? endGame(true) :
+    setOptionsSelected(false)
   }
 
   const handleAnswer = (option) => {
     setSelectedAnswer(option)
     const isCorrect = option === currentQuestion.answer
     setCurrentAnswer(isCorrect)
-    setSelectedAnswer(null)  // I added this line because of unexpected behavior, but I can't remember the problem.
-    console.log(isCorrect)
+    setSelectedAnswer(null)  // I added this line because of undesirable behavior, but I can't remember the problem.
+    setOptionsSelected(true)
+  
   }
 
   return (
     <>
 
     <div>
-    <p style={{ color: 'green' }}>Question {currentQuestionIndex + 1} of {questions.length}</p>
+    <p style={{ color: 'green' }}>Question {currentQuestionIndex + 1} of {questions.length - 1}</p>
     <h3 style={{ color: 'darkblue'}}>{currentQuestion.text}</h3>
+    <div><br></br></div>
     
-    {currentQuestion.options.map(renderButton)}
+      {currentQuestion.options.map(renderButton)} 
     
-    <button type="button" className="btn btn-light" margintop='20px' onClick={handleSubmit}>Submit</button>
   </div>
+  <br></br>
+   <div>
+    <button type="button" className="btn btn-light" disabled={!optionSelected} onClick={handleSubmit}>Submit</button>
+   </div>
     </>
   )
 }
 
 export default Questions
-
-// original buttons
-
-{/* <button type="button" className="btn btn-dark btn-lg btn-block" margin="10px" onClick={handleAnswer}>{currentQuestion.options[0]}</button>
-<button type="button" className="btn btn-dark btn-lg btn-block" onClick={handleAnswer}>{currentQuestion.options[1]}</button>
-<button type="button" className="btn btn-dark btn-lg btn-block" onClick={handleAnswer}>{currentQuestion.options[2]}</button>
-<button type="button" className="btn btn-dark btn-lg btn-block" onClick={handleAnswer}>{currentQuestion.options[3]}</button> */}

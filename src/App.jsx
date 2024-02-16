@@ -3,6 +3,7 @@ import './App.css'
 import Results from './components/Results'
 import Questions from './components/Questions'
 
+
 function App() {
   const [gameOver, setGameOver] = useState(false);
   const [correct, setCorrect] = useState(0);
@@ -17,6 +18,13 @@ function App() {
 
   const endGame = (gameEnded) => {
     (gameEnded === true) ? setGameOver(true) : console.log(gameEnded)
+    
+  }
+
+  const restart = (start) => {
+    setGameOver(false)
+    setCorrect(0)
+    setIncorrect(0)
   }
 
 
@@ -31,7 +39,7 @@ function App() {
       <h4>Correct: {correct}&nbsp;&nbsp;&nbsp;&nbsp;
       Incorrect: {incorrect}&nbsp;&nbsp;&nbsp;&nbsp;   
       Accuracy: {accuracy}%</h4>
-      {(gameOver) ? <Results accuracy={accuracy}/> : <Questions updateScore={updateScore} endGame={endGame}/>}
+      {(gameOver) ? <Results accuracy={accuracy} restart={restart}/> : <Questions updateScore={updateScore} endGame={endGame}/>}
       </div>
     </>
   )
