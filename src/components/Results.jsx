@@ -4,6 +4,7 @@ import React from 'react'
 function Results({accuracy, restart}) {
   const handleClick = () => {
     restart(false)
+    window.location.reload();
 
   }
 
