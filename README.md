@@ -1,8 +1,10 @@
-# React + Vite
+Joy of Coding - Explorer ticket 4
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Create a trivia game requirements:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- At least 20 questions and answers
+- 2 or more components
+- 1 or more Buttons for interactivity
+- Show one question or answer at a time
+- Move forward or backward through the trivia questions
+- Bonus: Keep score
